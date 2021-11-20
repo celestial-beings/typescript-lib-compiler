@@ -9,5 +9,8 @@ module.exports = {
     sourceType: 'module'
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint']
+  plugins: ['@typescript-eslint'],
+  rules: {
+    camelcase: [0, { properties: 'never' }]
+  }
 }

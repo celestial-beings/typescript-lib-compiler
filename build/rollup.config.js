@@ -26,16 +26,22 @@ const commonConfig = {
 // 需要导出的模块类型
 const output = [
   {
-    file: 'dist/index.js',
-    format: 'es',
+    file: 'dist/index.umd.js',
+    format: 'umd',
+    name: 'index',
     globals: {
-      axios: 'axios'
+    }
+  },
+  {
+    file: 'dist/index.esm.js',
+    format: 'esm',
+    globals: {
     }
   }
 ]
 
 // 打包时不引入第三方包
-const external = ['axios']
+const external = []
 
 export default {
   ...commonConfig,

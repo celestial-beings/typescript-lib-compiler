@@ -1,16 +1,18 @@
 {
-  "name": "typescript-lib-compiler",
-  "version": "1.0.0",
-  "main": "dist/index.js",
+  "name": "@alife/pai-oss-utils",
+  "version": "0.0.11",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
+    "release": "npm run build && tnpm publish",
     "build": "npm run fix && rollup --config build/rollup.config.js",
     "fix": "eslint src/index.ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.3.1",
@@ -29,8 +31,9 @@
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
   },
-  "dependencies": {
-  },
   "peerDependencies": {
+  },
+  "publishConfig": {
+    "registry": "https://registry.antfin-inc.com"
   }
 }
