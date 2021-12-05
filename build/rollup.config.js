@@ -26,14 +26,14 @@ const commonConfig = {
 // 需要导出的模块类型
 const output = [
   {
-    file: 'dist/index.umd.js',
+    file: 'dist/umd/index.js',
     format: 'umd',
     name: 'index',
     globals: {
     }
   },
   {
-    file: 'dist/index.esm.js',
+    file: 'dist/esm/index.js',
     format: 'esm',
     globals: {
     }
