@@ -1,11 +1,14 @@
 import path from 'path'
+import babel from '@rollup/plugin-babel'
 import ts from 'rollup-plugin-typescript2'
-import commonjs from 'rollup-plugin-commonjs'
-import resolve from 'rollup-plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
 
 const resolvePath = _path => path.resolve(__dirname, _path)
 
 const extensions = ['.ts']
+
+const nodeResolvePlugin = resolve(extensions)
 
 // ts
 const tsPlugin = ts({
@@ -13,13 +16,19 @@ const tsPlugin = ts({
   extensions
 })
 
+const babelPlugin = babel({
+  exclude: 'node_modules/**',
+  extensions
+})
+
 // 基础配置
 const commonConfig = {
   input: resolvePath('../src/index.ts'),
   plugins: [
-    resolve(extensions),
+    nodeResolvePlugin,
     commonjs(),
-    tsPlugin
+    tsPlugin,
+    babelPlugin
   ]
 }
 
