@@ -16,6 +16,7 @@ const tsPlugin = ts({
   extensions
 })
 
+// babel
 const babelPlugin = babel({
   exclude: 'node_modules/**',
   extensions
